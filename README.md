@@ -75,11 +75,10 @@ Hold the **SET button** for 3 seconds within 60 seconds of power-on (until `SYS`
 
 The product manual refers to the configuration software as **"RAEC_RS485_Tool"**, but the actual file distributed by the manufacturer is named **`MR0_MODBUS_2M1.exe`**. The two names refer to the same program.
 
-The tool is not prominently linked from the main product pages, which makes it difficult to find. Known download locations:
+The tool is only linked from the protocol gateway series page — not from the individual product page — which makes it easy to miss:
 
-- **Product page** (scroll to bottom for attachments/downloads): https://www.amxmotion.com/product/mr0-485-2m1/
-- **Web store** (search "MR0-485"): https://www.amsamotion.com
-- **Protocol gateway series page**: https://www.amxmotion.com/protocol-conversion-gateway/
+- **Series page** (only place with the download link): https://www.amxmotion.com/protocol-conversion-gateway/
+- **Direct download** (`.rar` archive containing `MR0_MODBUS_2M1.exe`): https://oss.amsamotion.com/uploads/MR0_MODBUS_2M1.rar
 
 The tool is Chinese-only out of the box. This repo provides a Python script to patch it to English.
 
