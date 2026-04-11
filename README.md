@@ -1,8 +1,8 @@
 # MR0-485-2M1 Configuration Tool — English Patch
 
-Patches the official `MR0_MODBUS_2M1.exe` configuration tool to display English instead of Chinese.
+English patch for the **MR0-485-2M1** RS485 hub/repeater configuration tool (`MR0_MODBUS_2M1.exe`, also referred to as `RAEC_RS485_Tool` in the product manual).
 
-Produces `MR0_MODBUS_2M1_EN.exe` — a drop-in replacement with the same functionality.
+Patches the official Chinese-only exe to display English, producing `MR0_MODBUS_2M1_EN.exe` — a drop-in replacement with the same functionality.
 
 ![MR0_MODBUS_2M1 patched to English](translated.png)
 
@@ -69,13 +69,29 @@ Hold the **SET button** for 3 seconds within 60 seconds of power-on (until `SYS`
 
 ---
 
+## Finding the Configuration Tool
+
+> **If you arrived here searching for `RAEC_RS485_Tool` — you're in the right place.**
+
+The product manual refers to the configuration software as **"RAEC_RS485_Tool"**, but the actual file distributed by the manufacturer is named **`MR0_MODBUS_2M1.exe`**. The two names refer to the same program.
+
+The tool is not prominently linked from the main product pages, which makes it difficult to find. Known download locations:
+
+- **Product page** (scroll to bottom for attachments/downloads): https://www.amxmotion.com/product/mr0-485-2m1/
+- **Web store** (search "MR0-485"): https://www.amsamotion.com
+- **Protocol gateway series page**: https://www.amxmotion.com/protocol-conversion-gateway/
+
+The tool is Chinese-only out of the box. This repo provides a Python script to patch it to English.
+
+---
+
 ## Configuration Tool Patch
 
 ### Files
 
 | File | Description |
 |---|---|
-| `MR0_MODBUS_2M1.exe` | Original tool — **not included**, download from manufacturer |
+| `MR0_MODBUS_2M1.exe` | Original tool (`RAEC_RS485_Tool`) — **not included**, download from manufacturer |
 | `patch_exe.py` | This script — patches the exe in-place |
 | `MR0_MODBUS_2M1_EN.exe` | Output — patched English version |
 | `TRANSLATION_NOTES.md` | Full Chinese → English translation reference |
