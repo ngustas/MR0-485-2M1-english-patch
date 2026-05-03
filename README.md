@@ -8,9 +8,11 @@ This repo does **not** redistribute the vendor's original `MR0_MODBUS_2M1.exe`. 
 
 ## Before / After
 
-Original older patch result:
+Original Chinese UI and older patch result (side-by-side):
 
 ![Original English patch result](translated.png)
+
+In `translated.png`, the left side is the original Chinese-only tool and the right side is the first simple English patch.
 
 Improved patch result with layout and font fixes:
 
