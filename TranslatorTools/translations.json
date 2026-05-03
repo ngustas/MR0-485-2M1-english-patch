@@ -1,0 +1,1350 @@
+[
+  {
+    "Chinese": "(1)0~1通道为模拟量输入通道",
+    "English": "(1)Channels 0~1 are analog input channels"
+  },
+  {
+    "Chinese": "(1)0~7通道为模拟量输入通道",
+    "English": "(1)Channels 0~7 are analog input channels"
+  },
+  {
+    "Chinese": "(1)1~2通道分辨率9位，3~4通道分辨率12位",
+    "English": "(1) The resolution of channels 1~2 is 9 bits, and the resolution of channels 3~4 is 12 bits."
+  },
+  {
+    "Chinese": "(1)1~8通道为模拟量输出通道",
+    "English": "(1)Channels 1~8 are analog output channels"
+  },
+  {
+    "Chinese": "(2)0~1通道输入范围：0~4095",
+    "English": "(2)0~1 channel input range: 0~4095"
+  },
+  {
+    "Chinese": "(2)0~7通道输入范围：0~16000",
+    "English": "(2) Channel 0~7 input range: 0~16000"
+  },
+  {
+    "Chinese": "(2)1~4路输出范围：0~4095",
+    "English": "(2)1~4 output range: 0~4095"
+  },
+  {
+    "Chinese": "(2)1~8通道输出范围：0~4095",
+    "English": "(2)1~8 channel output range: 0~4095"
+  },
+  {
+    "Chinese": "(3)0~1通道支持0~10V/0~20mA",
+    "English": "(3) Channel 0~1 supports 0~10V/0~20mA"
+  },
+  {
+    "Chinese": "(3)0~7通道支持0~10V/0~20mA",
+    "English": "(3) Channels 0~7 support 0~10V/0~20mA"
+  },
+  {
+    "Chinese": "(4)设置参数后必须点击保存",
+    "English": "(4) After setting the parameters, you must click Save"
+  },
+  {
+    "Chinese": "0V校准",
+    "English": "0V calibration"
+  },
+  {
+    "Chinese": "0mA校准",
+    "English": "0mA calibration"
+  },
+  {
+    "Chinese": "0点校准",
+    "English": "Zero calibration"
+  },
+  {
+    "Chinese": "0通道0点校准成功",
+    "English": "0 channel 0 point calibration successful"
+  },
+  {
+    "Chinese": "0通道满量程校准成功",
+    "English": "Channel 0 full-scale calibration successful"
+  },
+  {
+    "Chinese": "10V校准",
+    "English": "10V calibration"
+  },
+  {
+    "Chinese": "16路",
+    "English": "16 channels"
+  },
+  {
+    "Chinese": "1、设备地址可配置范围是1-255。\r\n\r\n2、砝码重量支持输入小数点；最大3位。\r\n\r\n",
+    "English": "1. The configurable range of the device address is 1-255.\r\n\r\n2. The weight supports input of decimal point; maximum 3 digits."
+  },
+  {
+    "Chinese": "1、该版本暂不支持配置采样深度、采样速率和称重通道\r\n\r\n2、该版本暂不支持配置校验位、数据位和停止位\r\n\r\n",
+    "English": "1. This version does not support configuring sampling depth, sampling rate and weighing channel.\r\n\r\n2. This version does not currently support configuring parity bits, data bits and stop bits."
+  },
+  {
+    "Chinese": "1通道0点校准成功",
+    "English": "1 channel 0 point calibration successful"
+  },
+  {
+    "Chinese": "1通道满量程校准成功",
+    "English": "1 channel full scale calibration successful"
+  },
+  {
+    "Chinese": "20mA校准",
+    "English": "20mA calibration"
+  },
+  {
+    "Chinese": "20ma校准",
+    "English": "20mA calibration"
+  },
+  {
+    "Chinese": "2通道0点校准成功",
+    "English": "2 channel 0 point calibration successful"
+  },
+  {
+    "Chinese": "2通道满量程校准成功",
+    "English": "2-channel full-scale calibration successful"
+  },
+  {
+    "Chinese": "3通道0点校准成功",
+    "English": "3 channel 0 point calibration successful"
+  },
+  {
+    "Chinese": "3通道满量程校准成功",
+    "English": "3-channel full-scale calibration successful"
+  },
+  {
+    "Chinese": "4mA校准",
+    "English": "4mA calibration"
+  },
+  {
+    "Chinese": "4ma校准",
+    "English": "4mA calibration"
+  },
+  {
+    "Chinese": "4路模拟输入",
+    "English": "4 analog inputs"
+  },
+  {
+    "Chinese": "4路模拟输出",
+    "English": "4 analog outputs"
+  },
+  {
+    "Chinese": "4通道0点校准成功",
+    "English": "4 channel 0 point calibration successful"
+  },
+  {
+    "Chinese": "4通道满量程校准成功",
+    "English": "4-channel full-scale calibration successful"
+  },
+  {
+    "Chinese": "5通道0点校准成功",
+    "English": "5 channel 0 point calibration successful"
+  },
+  {
+    "Chinese": "5通道满量程校准成功",
+    "English": "5-channel full-scale calibration successful"
+  },
+  {
+    "Chinese": "6通道0点校准成功",
+    "English": "6-channel 0-point calibration successful"
+  },
+  {
+    "Chinese": "6通道满量程校准成功",
+    "English": "6-channel full-scale calibration successful"
+  },
+  {
+    "Chinese": "7通道0点校准成功",
+    "English": "7 channel 0 point calibration successful"
+  },
+  {
+    "Chinese": "7通道满量程校准成功",
+    "English": "7-channel full-scale calibration successful"
+  },
+  {
+    "Chinese": "IP地址：",
+    "English": "IP address:"
+  },
+  {
+    "Chinese": "IP或者端口号错误...",
+    "English": "Wrong IP or port number..."
+  },
+  {
+    "Chinese": "I点个数",
+    "English": "Number of I points"
+  },
+  {
+    "Chinese": "MODBUS-2AI配置",
+    "English": "MODBUS-2AI configuration"
+  },
+  {
+    "Chinese": "MODBUS工具",
+    "English": "MODBUS tools"
+  },
+  {
+    "Chinese": "MR0系列MODBUS工具",
+    "English": "MR0 series MODBUS tools"
+  },
+  {
+    "Chinese": "NTC采样深度：",
+    "English": "NTC sampling depth:"
+  },
+  {
+    "Chinese": "Q点个数",
+    "English": "Number of Q points"
+  },
+  {
+    "Chinese": "RS232波特率：",
+    "English": "RS232 baud rate:"
+  },
+  {
+    "Chinese": "TCP连接配置",
+    "English": "TCP connection configuration"
+  },
+  {
+    "Chinese": "一键全电压0点校准",
+    "English": "Zero-calibrate all voltage channels"
+  },
+  {
+    "Chinese": "一键全电压10V校准",
+    "English": "10V-calibrate all voltage channels"
+  },
+  {
+    "Chinese": "一键全电流0点校准",
+    "English": "Zero-calibrate all current channels"
+  },
+  {
+    "Chinese": "一键全电流20ma校准",
+    "English": "20mA-calibrate all current channels"
+  },
+  {
+    "Chinese": "一键全电流4ma校准",
+    "English": "4mA-calibrate all current channels"
+  },
+  {
+    "Chinese": "一键写入配置",
+    "English": "Write all settings"
+  },
+  {
+    "Chinese": "一键读出配置",
+    "English": "Read all settings"
+  },
+  {
+    "Chinese": "一键配置所有参数",
+    "English": "Apply all"
+  },
+  {
+    "Chinese": "东莞市艾莫迅自动化科技有限公司v1.5.8",
+    "English": "Dongguan Aimoxun Automation Technology Co., Ltd. v1.5.8"
+  },
+  {
+    "Chinese": "串口号：",
+    "English": "COM port:"
+  },
+  {
+    "Chinese": "串口打开失败，请检查串口是否存在...",
+    "English": "Failed to open the serial port, please check whether the serial port exists..."
+  },
+  {
+    "Chinese": "串口没有打开...",
+    "English": "The serial port is not open..."
+  },
+  {
+    "Chinese": "串口通信出错提示:",
+    "English": "Serial communication error:"
+  },
+  {
+    "Chinese": "主站口1超时时间配置",
+    "English": "Master port 1 timeout"
+  },
+  {
+    "Chinese": "主站口1通信参数配置",
+    "English": "Master port 1"
+  },
+  {
+    "Chinese": "主站口2超时时间配置",
+    "English": "Master port 2 timeout"
+  },
+  {
+    "Chinese": "主站口2通信参数配置",
+    "English": "Master port 2"
+  },
+  {
+    "Chinese": "从站口参数配置",
+    "English": "Slave port"
+  },
+  {
+    "Chinese": "传感器状态",
+    "English": "Sensor status"
+  },
+  {
+    "Chinese": "传感器类型选择",
+    "English": "Sensor type selection"
+  },
+  {
+    "Chinese": "例：如要修正1.2℃，则填入12",
+    "English": "For example: If you want to correct 1.2℃, fill in 12"
+  },
+  {
+    "Chinese": "保存参数",
+    "English": "Save parameters"
+  },
+  {
+    "Chinese": "保存模拟量配置参数",
+    "English": "Save analog parameters"
+  },
+  {
+    "Chinese": "保持寄存器个数：",
+    "English": "Number of holding registers:"
+  },
+  {
+    "Chinese": "保持寄存器器",
+    "English": "holding register"
+  },
+  {
+    "Chinese": "保持寄存器：",
+    "English": "Holding register:"
+  },
+  {
+    "Chinese": "信号类别",
+    "English": "Signal category"
+  },
+  {
+    "Chinese": "停止位：",
+    "English": "Stop bit:"
+  },
+  {
+    "Chinese": "全输入正确的砝码重量...",
+    "English": "Please enter the correct full-scale weight..."
+  },
+  {
+    "Chinese": "全输入砝码重量...",
+    "English": "Please enter the full-scale weight..."
+  },
+  {
+    "Chinese": "全部关闭",
+    "English": "Close all"
+  },
+  {
+    "Chinese": "全部开启",
+    "English": "Turn all on"
+  },
+  {
+    "Chinese": "全部设4-20ma",
+    "English": "All set to 4-20ma"
+  },
+  {
+    "Chinese": "全部设电压",
+    "English": "All set voltage"
+  },
+  {
+    "Chinese": "全部设电流",
+    "English": "All set current"
+  },
+  {
+    "Chinese": "关闭串口",
+    "English": "Close COM"
+  },
+  {
+    "Chinese": "关闭校准",
+    "English": "Turn off calibration"
+  },
+  {
+    "Chinese": "其他参数配置",
+    "English": "Other parameter configuration"
+  },
+  {
+    "Chinese": "内码",
+    "English": "Raw value"
+  },
+  {
+    "Chinese": "写入",
+    "English": "Write"
+  },
+  {
+    "Chinese": "写入值",
+    "English": "Write value"
+  },
+  {
+    "Chinese": "写入地址",
+    "English": "Write address"
+  },
+  {
+    "Chinese": "写入总线地址成功,请断电重启",
+    "English": "Writing bus address successfully, please power off and restart"
+  },
+  {
+    "Chinese": "写入成功",
+    "English": "Write successful"
+  },
+  {
+    "Chinese": "写入校准系数",
+    "English": "Write calibration coefficient"
+  },
+  {
+    "Chinese": "写入配置",
+    "English": "Write configuration"
+  },
+  {
+    "Chinese": "冷端温度",
+    "English": "Cold junction temperature"
+  },
+  {
+    "Chinese": "冷端温度修正",
+    "English": "Cold junction temperature correction"
+  },
+  {
+    "Chinese": "创建串口失败:",
+    "English": "Failed to create serial port:"
+  },
+  {
+    "Chinese": "判定总线错误时间阀值：",
+    "English": "Determine bus error time threshold:"
+  },
+  {
+    "Chinese": "单独校准",
+    "English": "Individual calibration"
+  },
+  {
+    "Chinese": "去皮",
+    "English": "Tare"
+  },
+  {
+    "Chinese": "参数恢复出厂成功，断电重新启动！",
+    "English": "The parameters were restored to the factory successfully, and the power was turned off and restarted!"
+  },
+  {
+    "Chinese": "参数配置",
+    "English": "Parameters"
+  },
+  {
+    "Chinese": "参数错误...",
+    "English": "Parameter error..."
+  },
+  {
+    "Chinese": "参数错误...！",
+    "English": "Parameter error...!"
+  },
+  {
+    "Chinese": "取消去皮",
+    "English": "Clear tare"
+  },
+  {
+    "Chinese": "只读寄存器个数：",
+    "English": "Number of read-only registers:"
+  },
+  {
+    "Chinese": "启动MODBUS TCP",
+    "English": "Start MODBUS TCP"
+  },
+  {
+    "Chinese": "启动校准",
+    "English": "Start calibration"
+  },
+  {
+    "Chinese": "启动校验按钮",
+    "English": "Start verification button"
+  },
+  {
+    "Chinese": "启用单独校准",
+    "English": "Enable individual calibration"
+  },
+  {
+    "Chinese": "固件版本：",
+    "English": "FW ver:"
+  },
+  {
+    "Chinese": "地址",
+    "English": "Address"
+  },
+  {
+    "Chinese": "多个写入",
+    "English": "multiple writes"
+  },
+  {
+    "Chinese": "子网掩码：",
+    "English": "Subnet mask:"
+  },
+  {
+    "Chinese": "宋体",
+    "English": "Microsoft Sans Serif"
+  },
+  {
+    "Chinese": "实时内码",
+    "English": "Raw value"
+  },
+  {
+    "Chinese": "实时重量",
+    "English": "Real-time weight"
+  },
+  {
+    "Chinese": "寄存器操作",
+    "English": "Register operations"
+  },
+  {
+    "Chinese": "小数点",
+    "English": "decimal point"
+  },
+  {
+    "Chinese": "已经保存！",
+    "English": "Saved!"
+  },
+  {
+    "Chinese": "帮    助",
+    "English": "Help"
+  },
+  {
+    "Chinese": "开关量输入",
+    "English": "Digital input"
+  },
+  {
+    "Chinese": "开关量输出",
+    "English": "Digital output"
+  },
+  {
+    "Chinese": "开启串口前，请配置参数...",
+    "English": "Before opening the serial port, please configure parameters..."
+  },
+  {
+    "Chinese": "强制0点校准",
+    "English": "Force 0 point calibration"
+  },
+  {
+    "Chinese": "强制标定量程",
+    "English": "Forced calibration range"
+  },
+  {
+    "Chinese": "强制校准",
+    "English": "Forced calibration"
+  },
+  {
+    "Chinese": "强制量程标定",
+    "English": "Forced range calibration"
+  },
+  {
+    "Chinese": "当前值",
+    "English": "Current value"
+  },
+  {
+    "Chinese": "总线地址：",
+    "English": "Bus address:"
+  },
+  {
+    "Chinese": "总线错误保持",
+    "English": "Bus error hold"
+  },
+  {
+    "Chinese": "总线错误复位",
+    "English": "Bus error reset"
+  },
+  {
+    "Chinese": "恢复出厂设置",
+    "English": "Factory reset"
+  },
+  {
+    "Chinese": "成功提示：",
+    "English": "Success:"
+  },
+  {
+    "Chinese": "打开串口",
+    "English": "Open COM"
+  },
+  {
+    "Chinese": "扫描时间：",
+    "English": "Scan time:"
+  },
+  {
+    "Chinese": "指令发送成功.",
+    "English": "The command was sent successfully."
+  },
+  {
+    "Chinese": "提示",
+    "English": "Notice"
+  },
+  {
+    "Chinese": "提示：",
+    "English": "Notice:"
+  },
+  {
+    "Chinese": "搜索串口",
+    "English": "Scan COM"
+  },
+  {
+    "Chinese": "支持EMA-AW4G",
+    "English": "Support EMA-AW4G"
+  },
+  {
+    "Chinese": "支持EMB-AE8",
+    "English": "Support EMB-AE8"
+  },
+  {
+    "Chinese": "支持EMB-AM8",
+    "English": "Support EMB-AM8"
+  },
+  {
+    "Chinese": "支持EMB-AQ8",
+    "English": "Support EMB-AQ8"
+  },
+  {
+    "Chinese": "支持EMB-AR8G\r\n",
+    "English": "Support EMB-AR8G"
+  },
+  {
+    "Chinese": "支持JY-MODBUS-4AI4AO\r\n",
+    "English": "Support JY-MODBUS-4AI4AO"
+  },
+  {
+    "Chinese": "支持JY-MODBUS-8AI",
+    "English": "Support JY-MODBUS-8AI"
+  },
+  {
+    "Chinese": "支持MODBUS-2AI",
+    "English": "Support MODBUS-2AI"
+  },
+  {
+    "Chinese": "支持MODBUS-4AI4AO\r\n",
+    "English": "Support MODBUS-4AI4AO"
+  },
+  {
+    "Chinese": "支持MODBUS-8AO\r\n支持JY-MODBUS-8AO",
+    "English": "Support MODBUS-8AO\r\nSupport JY-MODBUS-8AO"
+  },
+  {
+    "Chinese": "支持MODBUS-8PT\r\n\r\n",
+    "English": "Support MODBUS-8PT"
+  },
+  {
+    "Chinese": "支持MODBUS-8TC\r\n支持MODBUS-2PT4NTC",
+    "English": "Support MODBUS-8TC\r\nSupport MODBUS-2PT4NTC"
+  },
+  {
+    "Chinese": "支持MR2A-AR8G\r\n",
+    "English": "Support MR2A-AR8G"
+  },
+  {
+    "Chinese": "支持MR2A-AW4G",
+    "English": "Support MR2A-AW4G"
+  },
+  {
+    "Chinese": "数字输入个数：",
+    "English": "Number of digital inputs:"
+  },
+  {
+    "Chinese": "数字输出个数：",
+    "English": "Number of digital outputs:"
+  },
+  {
+    "Chinese": "数据位：",
+    "English": "Data bits:"
+  },
+  {
+    "Chinese": "数据长度超出范围...！",
+    "English": "Data length is out of range...!"
+  },
+  {
+    "Chinese": "数据长度：",
+    "English": "Data length:"
+  },
+  {
+    "Chinese": "整体校准",
+    "English": "Overall calibration"
+  },
+  {
+    "Chinese": "整体确认校准",
+    "English": "Confirm Overall calibration"
+  },
+  {
+    "Chinese": "断开连接",
+    "English": "Disconnect"
+  },
+  {
+    "Chinese": "断线",
+    "English": "Disconnected"
+  },
+  {
+    "Chinese": "查询",
+    "English": "Query"
+  },
+  {
+    "Chinese": "查询参数",
+    "English": "Query parameters"
+  },
+  {
+    "Chinese": "标定",
+    "English": "Calibrate"
+  },
+  {
+    "Chinese": "校准",
+    "English": "Calibrate"
+  },
+  {
+    "Chinese": "校准电阻参数",
+    "English": "Calibrate resistance parameters"
+  },
+  {
+    "Chinese": "校准电阻类型",
+    "English": "Calibration resistor type"
+  },
+  {
+    "Chinese": "校准的电阻参数错误！",
+    "English": "The calibrated resistance parameters are wrong!"
+  },
+  {
+    "Chinese": "校准系数",
+    "English": "Calibration coefficient"
+  },
+  {
+    "Chinese": "校准系数设置",
+    "English": "Calibration coefficient setting"
+  },
+  {
+    "Chinese": "校正内码",
+    "English": "Correct raw value"
+  },
+  {
+    "Chinese": "校验位：",
+    "English": "Parity:"
+  },
+  {
+    "Chinese": "根据模块型号的IO点\r\n设置输出输入点的个数\r\n最大设置不超过48个点",
+    "English": "IO points according to module model\r\nSet the number of output and input points\r\nMaximum setting does not exceed 48 points"
+  },
+  {
+    "Chinese": "楷体",
+    "English": "Microsoft Sans Serif"
+  },
+  {
+    "Chinese": "模块IP地址：",
+    "English": "Module IP address:"
+  },
+  {
+    "Chinese": "模块参数配置",
+    "English": "Module parameter configuration"
+  },
+  {
+    "Chinese": "模块地址：",
+    "English": "Module address:"
+  },
+  {
+    "Chinese": "模块型号:",
+    "English": "Module model:"
+  },
+  {
+    "Chinese": "模块校准配置",
+    "English": "Module calibration configuration"
+  },
+  {
+    "Chinese": "模块端口号：",
+    "English": "Module port:"
+  },
+  {
+    "Chinese": "模式配置",
+    "English": "Mode configuration"
+  },
+  {
+    "Chinese": "模拟输入",
+    "English": "Analog input"
+  },
+  {
+    "Chinese": "模拟输出",
+    "English": "Analog output"
+  },
+  {
+    "Chinese": "模拟量参数",
+    "English": "Analog parameters"
+  },
+  {
+    "Chinese": "模拟量校准",
+    "English": "Analog calibration"
+  },
+  {
+    "Chinese": "模拟量输入",
+    "English": "Analog input"
+  },
+  {
+    "Chinese": "模拟量输出",
+    "English": "Analog output"
+  },
+  {
+    "Chinese": "模拟量输出校准成功",
+    "English": "Analog output calibration successful"
+  },
+  {
+    "Chinese": "欧",
+    "English": "Ohm"
+  },
+  {
+    "Chinese": "欧（单位）",
+    "English": "Ohm"
+  },
+  {
+    "Chinese": "正  常",
+    "English": "Normal"
+  },
+  {
+    "Chinese": "正常",
+    "English": "Normal"
+  },
+  {
+    "Chinese": "波特率：",
+    "English": "Baud rate:"
+  },
+  {
+    "Chinese": "注：砝码重量输入最大有效值1000000000，且小数部分也会占用有效位。如输入2位小数时，输入最大有效值为10000000.00",
+    "English": "Note: The maximum valid value for weight input is 1000000000, and the decimal part will also occupy valid digits. For example, when entering 2 decimal places, the maximum valid value entered is 10000000.00"
+  },
+  {
+    "Chinese": "测量值",
+    "English": "Measured value"
+  },
+  {
+    "Chinese": "温度修正值",
+    "English": "Temperature correction value"
+  },
+  {
+    "Chinese": "温度值",
+    "English": "Temperature value"
+  },
+  {
+    "Chinese": "满量程校准",
+    "English": "Full-scale calibration"
+  },
+  {
+    "Chinese": "滤波值范围:需要大于400！",
+    "English": "Filter value range: needs to be greater than 400!"
+  },
+  {
+    "Chinese": "滤波值：",
+    "English": "Filter value:"
+  },
+  {
+    "Chinese": "热电偶类型正值",
+    "English": "Thermocouple type positive value"
+  },
+  {
+    "Chinese": "版本：",
+    "English": "Version:"
+  },
+  {
+    "Chinese": "特别单独校准",
+    "English": "Special individual calibration"
+  },
+  {
+    "Chinese": "环境温度：",
+    "English": "Ambient temperature:"
+  },
+  {
+    "Chinese": "电压/电流值",
+    "English": "Voltage/current value"
+  },
+  {
+    "Chinese": "电压校准",
+    "English": "Voltage calibration"
+  },
+  {
+    "Chinese": "电流校准",
+    "English": "Current calibration"
+  },
+  {
+    "Chinese": "电阻1内码值",
+    "English": "raw value value of resistor 1"
+  },
+  {
+    "Chinese": "电阻2内码值",
+    "English": "Resistor 2 raw value value"
+  },
+  {
+    "Chinese": "皮重内码",
+    "English": "Tare raw value"
+  },
+  {
+    "Chinese": "砝码内码",
+    "English": "Weight raw value"
+  },
+  {
+    "Chinese": "砝码重量",
+    "English": "Weight"
+  },
+  {
+    "Chinese": "确定要回复出厂设置吗？",
+    "English": "Are you sure you want to restore factory settings?"
+  },
+  {
+    "Chinese": "确认校准",
+    "English": "Confirm calibration"
+  },
+  {
+    "Chinese": "称重信息配置",
+    "English": "Weighing information configuration"
+  },
+  {
+    "Chinese": "称重通道：",
+    "English": "Weighing channel:"
+  },
+  {
+    "Chinese": "第1路连接接收：",
+    "English": "Connection 1 received:"
+  },
+  {
+    "Chinese": "类型",
+    "English": "Type"
+  },
+  {
+    "Chinese": "网关：",
+    "English": "Gateway:"
+  },
+  {
+    "Chinese": "自动连接",
+    "English": "Auto connect"
+  },
+  {
+    "Chinese": "设备地址：",
+    "English": "Device address:"
+  },
+  {
+    "Chinese": "设备已连接",
+    "English": "Device connected"
+  },
+  {
+    "Chinese": "设备未连接",
+    "English": "Device not connected"
+  },
+  {
+    "Chinese": "设备连接状态",
+    "English": "Conn. status"
+  },
+  {
+    "Chinese": "设置",
+    "English": "Set"
+  },
+  {
+    "Chinese": "设置0点校准值",
+    "English": "Set 0 point calibration value"
+  },
+  {
+    "Chinese": "设置4~20ma",
+    "English": "Set 4~20ma"
+  },
+  {
+    "Chinese": "设置IO点",
+    "English": "Set IO point"
+  },
+  {
+    "Chinese": "设置IO点个数",
+    "English": "Set the number of IO points"
+  },
+  {
+    "Chinese": "设置IP",
+    "English": "Set IP"
+  },
+  {
+    "Chinese": "设置信号类别",
+    "English": "Set signal category"
+  },
+  {
+    "Chinese": "设置全电流",
+    "English": "Set full current"
+  },
+  {
+    "Chinese": "设置全部电压",
+    "English": "Set all voltages"
+  },
+  {
+    "Chinese": "设置分辨率",
+    "English": "Set resolution"
+  },
+  {
+    "Chinese": "设置参数成功，断电重新启动！",
+    "English": "Parameters are set successfully, power off and restart!"
+  },
+  {
+    "Chinese": "设置子网掩码",
+    "English": "Set subnet mask"
+  },
+  {
+    "Chinese": "设置总线错参数",
+    "English": "Set bus error parameters"
+  },
+  {
+    "Chinese": "设置总线错误参数",
+    "English": "Set bus error parameters"
+  },
+  {
+    "Chinese": "设置成功",
+    "English": "Set successfully"
+  },
+  {
+    "Chinese": "设置成功！",
+    "English": "Set successfully!"
+  },
+  {
+    "Chinese": "设置校准系数",
+    "English": "Set calibration coefficient"
+  },
+  {
+    "Chinese": "设置波特率系数",
+    "English": "Set baud rate factor"
+  },
+  {
+    "Chinese": "设置满量程内码值",
+    "English": "Set full-scale raw value"
+  },
+  {
+    "Chinese": "设置满量程重量",
+    "English": "Set full-scale weight"
+  },
+  {
+    "Chinese": "设置网关",
+    "English": "Set up gateway"
+  },
+  {
+    "Chinese": "设置设备地址",
+    "English": "Set device address"
+  },
+  {
+    "Chinese": "设置通道数",
+    "English": "Set channel count"
+  },
+  {
+    "Chinese": "设置采样深度",
+    "English": "Set sampling depth"
+  },
+  {
+    "Chinese": "说明1：",
+    "English": "Note 1:"
+  },
+  {
+    "Chinese": "说明2：",
+    "English": "Note 2:"
+  },
+  {
+    "Chinese": "请正确填入DP地址",
+    "English": "Please fill in the DP address correctly"
+  },
+  {
+    "Chinese": "请正确填入MPI地址",
+    "English": "Please fill in the MPI address correctly"
+  },
+  {
+    "Chinese": "请正确填入保持寄存器地址",
+    "English": "Please fill in the holding register address correctly"
+  },
+  {
+    "Chinese": "请正确填入地址",
+    "English": "Please fill in the address correctly"
+  },
+  {
+    "Chinese": "请正确填入输入寄存器地址",
+    "English": "Please fill in the input register address correctly"
+  },
+  {
+    "Chinese": "请正确填入输入线圈地址",
+    "English": "Please fill in the input coil address correctly"
+  },
+  {
+    "Chinese": "请正确填入输出线圈地址",
+    "English": "Please fill in the output coil address correctly"
+  },
+  {
+    "Chinese": "请输入0点对应的内码...",
+    "English": "Please enter the raw value corresponding to 0 points..."
+  },
+  {
+    "Chinese": "请输入参数...",
+    "English": "Please enter parameters..."
+  },
+  {
+    "Chinese": "请输入正确温度值",
+    "English": "Please enter the correct Temperature value"
+  },
+  {
+    "Chinese": "请输入正确的内码...",
+    "English": "Please enter the correct raw value..."
+  },
+  {
+    "Chinese": "请输入正确的砝码重量...",
+    "English": "Please enter the correct weight..."
+  },
+  {
+    "Chinese": "请输入砝码重量...",
+    "English": "Please enter the weight..."
+  },
+  {
+    "Chinese": "请选择正确保持寄存器类型",
+    "English": "Please select the correct holding register type"
+  },
+  {
+    "Chinese": "请选择正确类型",
+    "English": "Please select the correct type"
+  },
+  {
+    "Chinese": "请选择正确输入寄存器类型",
+    "English": "Please select the correct input register type"
+  },
+  {
+    "Chinese": "请选择正确输入线圈类型",
+    "English": "Please select the correct input coil type"
+  },
+  {
+    "Chinese": "请选择正确输出线圈类型",
+    "English": "Please select the correct output coil type"
+  },
+  {
+    "Chinese": "请选择热电偶类型",
+    "English": "Please select thermocouple type"
+  },
+  {
+    "Chinese": "请选选择启动采集！",
+    "English": "Please choose to start collection!"
+  },
+  {
+    "Chinese": "读出配置",
+    "English": "Read configuration"
+  },
+  {
+    "Chinese": "读取",
+    "English": "Read"
+  },
+  {
+    "Chinese": "读取参数",
+    "English": "Read params"
+  },
+  {
+    "Chinese": "起始地址：",
+    "English": "Starting address:"
+  },
+  {
+    "Chinese": "输入寄存器：",
+    "English": "Input register:"
+  },
+  {
+    "Chinese": "输入的参数错误...",
+    "English": "The parameters entered are wrong..."
+  },
+  {
+    "Chinese": "输入线圈：",
+    "English": "Input coil:"
+  },
+  {
+    "Chinese": "输出模式切换",
+    "English": "Output mode switch"
+  },
+  {
+    "Chinese": "输出模式切换:",
+    "English": "Output mode switch:"
+  },
+  {
+    "Chinese": "输出线圈：",
+    "English": "Output coil:"
+  },
+  {
+    "Chinese": "连接失败...！",
+    "English": "Connection failed...!"
+  },
+  {
+    "Chinese": "连接成功",
+    "English": "Connected"
+  },
+  {
+    "Chinese": "连接断开",
+    "English": "Disconnected"
+  },
+  {
+    "Chinese": "连接没有建立...！",
+    "English": "Connection not established...!"
+  },
+  {
+    "Chinese": "退出校准",
+    "English": "Exit calibration"
+  },
+  {
+    "Chinese": "选择连接参数",
+    "English": "Select connection parameters"
+  },
+  {
+    "Chinese": "通信参数",
+    "English": "Communication parameters"
+  },
+  {
+    "Chinese": "通信参数配置",
+    "English": "Communication parameter configuration"
+  },
+  {
+    "Chinese": "通讯参数",
+    "English": "Communication parameters"
+  },
+  {
+    "Chinese": "通道0",
+    "English": "Channel 0"
+  },
+  {
+    "Chinese": "通道0：",
+    "English": "Channel 0:"
+  },
+  {
+    "Chinese": "通道1",
+    "English": "Channel 1"
+  },
+  {
+    "Chinese": "通道10",
+    "English": "Channel 10"
+  },
+  {
+    "Chinese": "通道11",
+    "English": "Channel 11"
+  },
+  {
+    "Chinese": "通道12",
+    "English": "Channel 12"
+  },
+  {
+    "Chinese": "通道13",
+    "English": "Channel 13"
+  },
+  {
+    "Chinese": "通道14",
+    "English": "Channel 14"
+  },
+  {
+    "Chinese": "通道15",
+    "English": "Channel 15"
+  },
+  {
+    "Chinese": "通道1：",
+    "English": "Channel 1:"
+  },
+  {
+    "Chinese": "通道2",
+    "English": "Channel 2"
+  },
+  {
+    "Chinese": "通道2：",
+    "English": "Channel 2:"
+  },
+  {
+    "Chinese": "通道3",
+    "English": "Channel 3"
+  },
+  {
+    "Chinese": "通道3：",
+    "English": "Channel 3:"
+  },
+  {
+    "Chinese": "通道4",
+    "English": "Channel 4"
+  },
+  {
+    "Chinese": "通道4：",
+    "English": "Channel 4:"
+  },
+  {
+    "Chinese": "通道5",
+    "English": "Channel 5"
+  },
+  {
+    "Chinese": "通道5：",
+    "English": "Channel 5:"
+  },
+  {
+    "Chinese": "通道6",
+    "English": "Channel 6"
+  },
+  {
+    "Chinese": "通道7",
+    "English": "Channel 7"
+  },
+  {
+    "Chinese": "通道8",
+    "English": "Channel 8"
+  },
+  {
+    "Chinese": "通道9",
+    "English": "Channel 9"
+  },
+  {
+    "Chinese": "通道号",
+    "English": "Channel number"
+  },
+  {
+    "Chinese": "通道数只能是1",
+    "English": "The number of channels can only be 1"
+  },
+  {
+    "Chinese": "通道数范围:1~4!",
+    "English": "Channel number range: 1~4!"
+  },
+  {
+    "Chinese": "通道数范围:1~8!",
+    "English": "Channel number range: 1~8!"
+  },
+  {
+    "Chinese": "通道数：",
+    "English": "Number of channels:"
+  },
+  {
+    "Chinese": "通道编号",
+    "English": "Channel number"
+  },
+  {
+    "Chinese": "配置以太网参数",
+    "English": "Configure Ethernet parameters"
+  },
+  {
+    "Chinese": "配置参数",
+    "English": "Configuration parameters"
+  },
+  {
+    "Chinese": "采样深度1~20！",
+    "English": "Sampling depth 1~20!"
+  },
+  {
+    "Chinese": "采样深度只能是1~10！",
+    "English": "The sampling depth can only be 1~10!"
+  },
+  {
+    "Chinese": "采样深度范围:10~99！",
+    "English": "Sampling depth range: 10~99!"
+  },
+  {
+    "Chinese": "采样深度范围:15~99！",
+    "English": "Sampling depth range: 15~99!"
+  },
+  {
+    "Chinese": "采样深度：",
+    "English": "Sampling depth:"
+  },
+  {
+    "Chinese": "采样电阻1",
+    "English": "Sampling resistor 1"
+  },
+  {
+    "Chinese": "采样电阻2",
+    "English": "Sampling resistor 2"
+  },
+  {
+    "Chinese": "采样速率：",
+    "English": "Sampling rate:"
+  },
+  {
+    "Chinese": "错误提示：",
+    "English": "Error:"
+  },
+  {
+    "Chinese": "零点内码",
+    "English": "Zero raw value"
+  },
+  {
+    "Chinese": "零点校准",
+    "English": "Zero calibration"
+  },
+  {
+    "Chinese": "黑体",
+    "English": "Microsoft Sans Serif"
+  },
+  {
+    "Chinese": "默认1000，若得到的值偏小，\r\n可设置较大的校准系数",
+    "English": "The default is 1000. If the value obtained is too small,\r\nLarger calibration coefficient can be set"
+  },
+  {
+    "Chinese": "默认单位：克",
+    "English": "Default unit: g"
+  }
+]

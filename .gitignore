@@ -1,1 +1,6 @@
 *.exe
+__pycache__/
+TranslatorTools/bin/
+TranslatorTools/obj/
+dist/
+rs485 conversion/

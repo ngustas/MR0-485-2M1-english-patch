@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Patches MR0_MODBUS_2M1.exe to replace Chinese UI strings with English.
-Strings in .NET #US heap are length-prefixed; we replace in-place keeping exact byte count.
+Legacy minimal patcher for MR0_MODBUS_2M1.exe.
+This path only replaces string bytes in-place and does not adjust WinForms layout or fonts.
 """
 import sys, shutil
 
@@ -436,3 +436,4 @@ if __name__ == '__main__':
         f.write(patched)
 
     print("Done! Run MR0_MODBUS_2M1_EN.exe to test.")
+    print("Note: this is the legacy minimal patcher. For layout/font fixes, see TranslatorTools.")
