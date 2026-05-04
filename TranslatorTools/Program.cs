@@ -1,11 +1,19 @@
 using Mono.Cecil;
 using Mono.Cecil.Cil;
+using System.Drawing;
+using System.Reflection;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
+using System.Windows.Forms;
 
-Console.OutputEncoding = Encoding.UTF8;
+TrySetConsoleOutputEncoding();
+
+if (args.Length == 0)
+{
+    return RunGuiMode();
+}
 
 if (args.Length < 2)
 {
@@ -25,10 +33,32 @@ return command switch
 {
     "scan" => ScanAssembly(assemblyPath),
     "extract" => ExtractStrings(assemblyPath, args.Length > 2 ? args[2] : "strings.json"),
-    "patch" => PatchAssembly(assemblyPath, args),
+    "patch" => PatchAssemblyFromCommand(assemblyPath, args),
     "dump-type" => DumpType(assemblyPath, args),
     _ => UnknownCommand(command)
 };
+
+static int RunGuiMode()
+{
+    try
+    {
+        ApplicationConfiguration.Initialize();
+        Application.Run(new PatchToolForm(
+            FindDefaultAssemblyPath,
+            GetSuggestedOutputPath,
+            (inputPath, outputPath) => PatchAssembly(inputPath, outputPath, LoadBundledTranslations())));
+        return 0;
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show(
+            ex.Message,
+            "MR0-485-2M1 Patcher",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Error);
+        return 1;
+    }
+}
 
 static int ScanAssembly(string assemblyPath)
 {
@@ -64,6 +94,17 @@ static int ScanAssembly(string assemblyPath)
     return 0;
 }
 
+static void TrySetConsoleOutputEncoding()
+{
+    try
+    {
+        Console.OutputEncoding = Encoding.UTF8;
+    }
+    catch (IOException)
+    {
+    }
+}
+
 static int ExtractStrings(string assemblyPath, string outputPath)
 {
     var module = ModuleDefinition.ReadModule(assemblyPath);
@@ -94,28 +135,36 @@ static int ExtractStrings(string assemblyPath, string outputPath)
     return 0;
 }
 
-static int PatchAssembly(string assemblyPath, string[] args)
+static int PatchAssemblyFromCommand(string assemblyPath, string[] args)
 {
-    if (args.Length < 4)
+    if (args.Length < 3)
     {
-        Console.Error.WriteLine("Usage: TranslatorTools patch <assembly-path> <translations.json> <output-assembly>");
+        Console.Error.WriteLine("Usage: TranslatorTools patch <assembly-path> <output-assembly>");
+        Console.Error.WriteLine("   or: TranslatorTools patch <assembly-path> <translations.json> <output-assembly>");
         return 1;
     }
 
-    var mapPath = Path.GetFullPath(args[2]);
-    var outputPath = Path.GetFullPath(args[3]);
-    var items = JsonSerializer.Deserialize<List<TranslationItem>>(File.ReadAllText(mapPath, Encoding.UTF8));
-    if (items is null)
+    IReadOnlyDictionary<string, string> translations;
+    string outputPath;
+
+    if (args.Length >= 4)
     {
-        Console.Error.WriteLine("Translation file could not be parsed.");
-        return 1;
+        translations = LoadTranslationsFromFile(args[2]);
+        outputPath = Path.GetFullPath(args[3]);
+    }
+    else
+    {
+        translations = LoadBundledTranslations();
+        outputPath = Path.GetFullPath(args[2]);
     }
 
-    var translations = items
-        .Where(x => !string.IsNullOrWhiteSpace(x.English))
-        .GroupBy(x => x.Chinese, StringComparer.Ordinal)
-        .ToDictionary(g => g.Key, g => g.Last().English, StringComparer.Ordinal);
+    var result = PatchAssembly(assemblyPath, outputPath, translations);
+    Console.WriteLine($"Patched {result.PatchedStrings} string loads and {result.PatchedLayoutValues} layout values into {result.OutputPath}");
+    return 0;
+}
 
+static PatchResult PatchAssembly(string assemblyPath, string outputPath, IReadOnlyDictionary<string, string> translations)
+{
     var module = ModuleDefinition.ReadModule(assemblyPath);
     var patchedCount = 0;
     var layoutPatchedCount = 0;
@@ -140,8 +189,7 @@ static int PatchAssembly(string assemblyPath, string[] args)
 
     layoutPatchedCount += ApplyMr0LayoutTweaks(module);
     module.Write(outputPath);
-    Console.WriteLine($"Patched {patchedCount} string loads and {layoutPatchedCount} layout values into {outputPath}");
-    return 0;
+    return new PatchResult(patchedCount, layoutPatchedCount, outputPath);
 }
 
 static int DumpType(string assemblyPath, string[] args)
@@ -457,10 +505,301 @@ static int UnknownCommand(string command)
 static void PrintUsage()
 {
     Console.Error.WriteLine("Usage:");
+    Console.Error.WriteLine("  TranslatorTools           (launch GUI patcher)");
     Console.Error.WriteLine("  TranslatorTools scan <assembly-path>");
     Console.Error.WriteLine("  TranslatorTools extract <assembly-path> [output-json]");
+    Console.Error.WriteLine("  TranslatorTools patch <assembly-path> <output-assembly>");
     Console.Error.WriteLine("  TranslatorTools patch <assembly-path> <translations.json> <output-assembly>");
     Console.Error.WriteLine("  TranslatorTools dump-type <assembly-path> <full-type-name>");
 }
 
+static IReadOnlyDictionary<string, string> LoadTranslationsFromFile(string mapPath)
+{
+    return LoadTranslationsJson(File.ReadAllText(Path.GetFullPath(mapPath), Encoding.UTF8), mapPath);
+}
+
+static IReadOnlyDictionary<string, string> LoadBundledTranslations()
+{
+    var assembly = Assembly.GetExecutingAssembly();
+    var resourceName = assembly.GetManifestResourceNames()
+        .FirstOrDefault(name => name.EndsWith("translations.json", StringComparison.OrdinalIgnoreCase));
+
+    if (resourceName is null)
+    {
+        throw new InvalidOperationException("Bundled translations.json resource was not found.");
+    }
+
+    using var stream = assembly.GetManifestResourceStream(resourceName);
+    if (stream is null)
+    {
+        throw new InvalidOperationException($"Bundled translation resource could not be opened: {resourceName}");
+    }
+
+    using var reader = new StreamReader(stream, Encoding.UTF8);
+    return LoadTranslationsJson(reader.ReadToEnd(), resourceName);
+}
+
+static IReadOnlyDictionary<string, string> LoadTranslationsJson(string json, string sourceLabel)
+{
+    var items = JsonSerializer.Deserialize<List<TranslationItem>>(json);
+    if (items is null)
+    {
+        throw new InvalidOperationException($"Translation file could not be parsed: {sourceLabel}");
+    }
+
+    return items
+        .Where(x => !string.IsNullOrWhiteSpace(x.English))
+        .GroupBy(x => x.Chinese, StringComparer.Ordinal)
+        .ToDictionary(g => g.Key, g => g.Last().English, StringComparer.Ordinal);
+}
+
+static string GetSuggestedOutputPath(string assemblyPath)
+{
+    var fullPath = Path.GetFullPath(assemblyPath);
+    var directory = Path.GetDirectoryName(fullPath) ?? AppContext.BaseDirectory;
+    var fileName = Path.GetFileNameWithoutExtension(fullPath);
+    return Path.Combine(directory, $"{fileName}_EN.exe");
+}
+
+static string? FindDefaultAssemblyPath()
+{
+    var candidates = new[]
+    {
+        AppContext.BaseDirectory,
+        Environment.CurrentDirectory
+    }
+    .Distinct(StringComparer.OrdinalIgnoreCase);
+
+    foreach (var directory in candidates)
+    {
+        var candidate = Path.Combine(directory, "MR0_MODBUS_2M1.exe");
+        if (File.Exists(candidate))
+        {
+            return candidate;
+        }
+    }
+
+    return null;
+}
+
+internal sealed class PatchToolForm : Form
+{
+    private readonly Func<string?> _findDefaultAssemblyPath;
+    private readonly Func<string, string> _getSuggestedOutputPath;
+    private readonly Func<string, string, PatchResult> _patchAssembly;
+    private readonly TextBox _inputPathTextBox;
+    private readonly TextBox _outputPathTextBox;
+    private readonly Label _statusLabel;
+
+    public PatchToolForm(
+        Func<string?> findDefaultAssemblyPath,
+        Func<string, string> getSuggestedOutputPath,
+        Func<string, string, PatchResult> patchAssembly)
+    {
+        _findDefaultAssemblyPath = findDefaultAssemblyPath;
+        _getSuggestedOutputPath = getSuggestedOutputPath;
+        _patchAssembly = patchAssembly;
+
+        Text = "MR0-485-2M1 English Patcher";
+        ClientSize = new Size(720, 272);
+        FormBorderStyle = FormBorderStyle.FixedDialog;
+        MaximizeBox = false;
+        MinimizeBox = false;
+        StartPosition = FormStartPosition.CenterScreen;
+
+        var introLabel = new Label
+        {
+            AutoSize = false,
+            Location = new Point(16, 14),
+            Size = new Size(688, 36),
+            Text = "Pick the original MR0_MODBUS_2M1.exe. The patcher will generate a new English EXE without modifying the original file."
+        };
+
+        var inputLabel = new Label
+        {
+            AutoSize = true,
+            Location = new Point(16, 72),
+            Text = "Original EXE:"
+        };
+
+        _inputPathTextBox = new TextBox
+        {
+            Location = new Point(16, 96),
+            Size = new Size(586, 23)
+        };
+        _inputPathTextBox.TextChanged += (_, _) => UpdateSuggestedOutputPath();
+
+        var browseInputButton = new Button
+        {
+            Location = new Point(611, 95),
+            Size = new Size(93, 32),
+            Text = "Browse..."
+        };
+        browseInputButton.Click += (_, _) => BrowseForInput();
+
+        var outputLabel = new Label
+        {
+            AutoSize = true,
+            Location = new Point(16, 132),
+            Text = "Patched EXE:"
+        };
+
+        _outputPathTextBox = new TextBox
+        {
+            Location = new Point(16, 156),
+            Size = new Size(586, 23)
+        };
+
+        var browseOutputButton = new Button
+        {
+            Location = new Point(611, 155),
+            Size = new Size(93, 32),
+            Text = "Save as..."
+        };
+        browseOutputButton.Click += (_, _) => BrowseForOutput();
+
+        var patchButton = new Button
+        {
+            Location = new Point(533, 225),
+            Size = new Size(171, 36),
+            Text = "Create English EXE"
+        };
+        patchButton.Click += (_, _) => RunPatch();
+
+        _statusLabel = new Label
+        {
+            AutoSize = false,
+            Location = new Point(16, 226),
+            Size = new Size(500, 32),
+            Text = "Looking for MR0_MODBUS_2M1.exe next to the patcher..."
+        };
+
+        Controls.Add(introLabel);
+        Controls.Add(inputLabel);
+        Controls.Add(_inputPathTextBox);
+        Controls.Add(browseInputButton);
+        Controls.Add(outputLabel);
+        Controls.Add(_outputPathTextBox);
+        Controls.Add(browseOutputButton);
+        Controls.Add(_statusLabel);
+        Controls.Add(patchButton);
+
+        Load += (_, _) => InitializePaths();
+    }
+
+    private void InitializePaths()
+    {
+        var defaultPath = _findDefaultAssemblyPath();
+        if (defaultPath is null)
+        {
+            _statusLabel.Text = "Original EXE not found automatically. Browse to MR0_MODBUS_2M1.exe.";
+            return;
+        }
+
+        _inputPathTextBox.Text = defaultPath;
+        _statusLabel.Text = "Found MR0_MODBUS_2M1.exe next to the patcher.";
+    }
+
+    private void BrowseForInput()
+    {
+        using var dialog = new OpenFileDialog
+        {
+            Filter = "Executable (*.exe)|*.exe|All files (*.*)|*.*",
+            Title = "Select MR0_MODBUS_2M1.exe",
+            FileName = Path.GetFileName(_inputPathTextBox.Text)
+        };
+
+        if (dialog.ShowDialog(this) == DialogResult.OK)
+        {
+            _inputPathTextBox.Text = dialog.FileName;
+        }
+    }
+
+    private void BrowseForOutput()
+    {
+        using var dialog = new SaveFileDialog
+        {
+            Filter = "Executable (*.exe)|*.exe|All files (*.*)|*.*",
+            Title = "Save patched EXE as",
+            FileName = Path.GetFileName(string.IsNullOrWhiteSpace(_outputPathTextBox.Text)
+                ? _getSuggestedOutputPath(_inputPathTextBox.Text)
+                : _outputPathTextBox.Text)
+        };
+
+        if (dialog.ShowDialog(this) == DialogResult.OK)
+        {
+            _outputPathTextBox.Text = dialog.FileName;
+        }
+    }
+
+    private void UpdateSuggestedOutputPath()
+    {
+        if (string.IsNullOrWhiteSpace(_inputPathTextBox.Text))
+        {
+            return;
+        }
+
+        var suggestedPath = _getSuggestedOutputPath(_inputPathTextBox.Text);
+        if (string.IsNullOrWhiteSpace(_outputPathTextBox.Text) ||
+            _outputPathTextBox.Text.EndsWith("_EN.exe", StringComparison.OrdinalIgnoreCase))
+        {
+            _outputPathTextBox.Text = suggestedPath;
+        }
+    }
+
+    private void RunPatch()
+    {
+        try
+        {
+            var inputPath = Path.GetFullPath(_inputPathTextBox.Text.Trim());
+            var outputPath = Path.GetFullPath(_outputPathTextBox.Text.Trim());
+
+            if (!File.Exists(inputPath))
+            {
+                throw new FileNotFoundException("Original EXE not found.", inputPath);
+            }
+
+            if (string.Equals(inputPath, outputPath, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new InvalidOperationException("Output path must be different from the original EXE.");
+            }
+
+            var outputDirectory = Path.GetDirectoryName(outputPath);
+            if (string.IsNullOrWhiteSpace(outputDirectory))
+            {
+                throw new InvalidOperationException("Output path is invalid.");
+            }
+
+            Directory.CreateDirectory(outputDirectory);
+
+            _statusLabel.Text = "Patching EXE...";
+            UseWaitCursor = true;
+            var result = _patchAssembly(inputPath, outputPath);
+            _statusLabel.Text = $"Done. Patched {result.PatchedStrings} strings and {result.PatchedLayoutValues} layout values.";
+
+            MessageBox.Show(
+                this,
+                $"Patched {result.PatchedStrings} string loads and {result.PatchedLayoutValues} layout values.\n\nCreated:\n{result.OutputPath}",
+                "MR0-485-2M1 Patcher",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+        catch (Exception ex)
+        {
+            _statusLabel.Text = "Patch failed.";
+            MessageBox.Show(
+                this,
+                ex.Message,
+                "MR0-485-2M1 Patcher",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+        }
+        finally
+        {
+            UseWaitCursor = false;
+        }
+    }
+}
+
 internal sealed record TranslationItem(string Chinese, string English);
+internal sealed record PatchResult(int PatchedStrings, int PatchedLayoutValues, string OutputPath);

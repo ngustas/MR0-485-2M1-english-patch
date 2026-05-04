@@ -92,15 +92,31 @@ The tool is Chinese-only out of the box. This repo provides multiple ways to pat
 
 ---
 
-## Patch Options
+## Which Patcher Should I Use?
 
-This repo supports three trust / comfort levels:
+For most people, use the **prebuilt release EXE** from GitHub Releases.
 
-| Path | Audience | Requires | Notes |
+| Path | Best for | Requires | Notes |
 |---|---|---|---|
-| Prebuilt patcher EXE | Easiest path | Nothing beyond Windows | Recommended for most users. Intended for GitHub Releases. |
-| `TranslatorTools` source | Auditable advanced patcher | .NET 8 SDK | Recommended source path. Patches text, layout, and fonts. |
-| `patch_exe.py` | Maximum simplicity / legacy fallback | Python 3 | String-only patch. Does not fix layout or font issues. |
+| GitHub Release: `MR0-485-2M1-patcher.exe` | Normal users | Windows + .NET 8 Desktop Runtime x64 | Recommended. Double-click GUI patcher. |
+| `TranslatorTools` source | Developers / source auditing | .NET 8 SDK | Same advanced patcher, built from source. |
+| `patch_exe.py` | Minimal legacy fallback | Python 3 | String-only patch. Does not fix layout or font issues. |
+
+### Recommended For Most Users
+
+1. Download the original `MR0_MODBUS_2M1.exe` from the vendor link above.
+2. Download `MR0-485-2M1-patcher.exe` from this repo's **GitHub Releases** page.
+3. Install **.NET 8 Desktop Runtime x64** if you do not already have it.
+4. Put `MR0-485-2M1-patcher.exe` in the same folder as `MR0_MODBUS_2M1.exe`.
+5. Double-click the patcher and click **Create English EXE**.
+6. Use the generated `MR0_MODBUS_2M1_EN.exe`.
+
+The release patcher is the best non-developer path because it can:
+
+- replace strings without the original same-length limitation
+- widen cramped sections of the UI
+- move controls to make English text fit
+- switch Chinese UI fonts to a normal Windows UI font
 
 ### Files
 
@@ -115,16 +131,11 @@ This repo supports three trust / comfort levels:
 
 ---
 
-## Recommended Patch Path
+## For Contributors
 
-The recommended patch path is the advanced `.NET` patcher because it can do more than in-place byte replacement:
+If you want to inspect or modify the advanced patcher itself, use `TranslatorTools`.
 
-- replace strings without the original same-length limitation
-- widen cramped sections of the UI
-- move controls to make English text fit
-- switch Chinese UI fonts to a normal Windows UI font
-
-### Build a Standalone Patcher EXE
+### Build the Release Patcher EXE
 
 From the repo root:
 
@@ -132,16 +143,18 @@ From the repo root:
 powershell -ExecutionPolicy Bypass -File .\scripts\publish-patcher.ps1
 ```
 
-This publishes a self-contained single-file Windows patcher under:
+This publishes the same small Windows patcher used for releases under:
 
 ```text
 dist\MR0-485-2M1-patcher-win-x64\MR0-485-2M1-patcher.exe
 ```
 
+End users need the **.NET 8 Desktop Runtime x64** installed. The SDK is not required for normal use of the published EXE.
+
 ### Run the Advanced Patcher From Source
 
 ```powershell
-& 'C:\Program Files\dotnet\dotnet.exe' run --project .\TranslatorTools\TranslatorTools.csproj -- patch .\MR0_MODBUS_2M1.exe .\TranslatorTools\translations.json .\MR0_MODBUS_2M1_EN.exe
+& 'C:\Program Files\dotnet\dotnet.exe' run --project .\TranslatorTools\TranslatorTools.csproj -- patch .\MR0_MODBUS_2M1.exe .\MR0_MODBUS_2M1_EN.exe
 ```
 
 ---

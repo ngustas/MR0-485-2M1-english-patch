@@ -20,9 +20,8 @@ if (Get-Command dotnet -ErrorAction SilentlyContinue) {
 & $dotnet publish $project `
     -c $Configuration `
     -r $Runtime `
-    --self-contained true `
+    --self-contained false `
     /p:PublishSingleFile=true `
-    /p:IncludeNativeLibrariesForSelfExtract=true `
     -o $outputDir
 
 $publishedExe = Join-Path $outputDir "TranslatorTools.exe"
@@ -32,4 +31,5 @@ if (Test-Path $publishedExe) {
     Copy-Item -LiteralPath $publishedExe -Destination $finalExe -Force
 }
 
-Write-Host "Published standalone patcher to $finalExe"
+Write-Host "Published framework-dependent patcher to $finalExe"
+Write-Host "Requires .NET 8 Desktop Runtime x64 on the target machine."

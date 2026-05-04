@@ -1,0 +1,28 @@
+MR0-485-2M1 English Patcher
+===========================
+
+This patcher does not include the original vendor EXE.
+
+What you need:
+- MR0_MODBUS_2M1.exe
+- MR0-485-2M1-patcher.exe
+- .NET 8 Desktop Runtime x64
+
+Quick GUI use:
+1. Put MR0-485-2M1-patcher.exe in the same folder as MR0_MODBUS_2M1.exe.
+2. Double-click MR0-485-2M1-patcher.exe.
+3. The patcher will auto-fill the original EXE if it finds it.
+4. Click "Create English EXE".
+5. Use the generated file:
+   MR0_MODBUS_2M1_EN.exe
+
+What it changes:
+- .NET string literals
+- WinForms layout
+- WinForms font settings
+
+Notes:
+- The original MR0_MODBUS_2M1.exe is not modified.
+- If the patcher cannot find the input EXE automatically, use the Browse button.
+- The full .NET SDK is not required for normal use.
+- See the GitHub repository README for vendor download links and source code.
